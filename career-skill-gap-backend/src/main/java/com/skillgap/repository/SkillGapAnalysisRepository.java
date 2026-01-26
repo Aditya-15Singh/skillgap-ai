@@ -1,0 +1,12 @@
+package com.skillgap.repository;
+
+import com.skillgap.entity.SkillGapAnalysis;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface SkillGapAnalysisRepository extends JpaRepository<SkillGapAnalysis, Long> {
+    List<SkillGapAnalysis> findByUserId(Long userId);
+}
