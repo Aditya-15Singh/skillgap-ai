@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/career-goal")
-@CrossOrigin(origins = "*")
+
 public class CareerGoalController {
 
     @Autowired
