@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: skillgap-backend
+    env: docker
+    plan: free
+    region: singapore # Optional: defaults to Oregon, but user is likely in IST (check timezone)
+    # User's time is IST (GMT+5:30), so Singapore or Frankfurt is better than US usually.
+    # Let's omit region to let them choose, or stick to auto. 
+    # Actually, let's keep it simple.
+    branch: main
+    rootDir: career-skill-gap-backend
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
