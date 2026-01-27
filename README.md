@@ -2,6 +2,10 @@
 
 A full-stack web application that analyzes users' current skills against their career goals and provides AI-powered personalized learning roadmaps.
 
+## 🌐 Live Demo
+- **Frontend**: [https://skillgapbyaditya.netlify.app](https://skillgapbyaditya.netlify.app)
+- **Backend API**: [https://skillgap-backend-nhir.onrender.com](https://skillgap-backend-nhir.onrender.com)
+
 ## 🚀 Technologies Used
 
 ### Backend
