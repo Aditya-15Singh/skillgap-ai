@@ -207,7 +207,7 @@ export default function Dashboard() {
                     color: '#94a3b8',
                     fontSize: '0.875rem'
                 }}>
-                    <p>All rights goes to Aditya Singh &copy; {new Date().getFullYear()}</p>
+                    <p>All rights goes to Ayush &copy; {new Date().getFullYear()}</p>
                 </footer>
             </div>
         </div>
