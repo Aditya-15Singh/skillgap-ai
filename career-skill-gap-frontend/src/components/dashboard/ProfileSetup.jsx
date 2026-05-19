@@ -128,9 +128,16 @@ export default function ProfileSetup() {
         setLoading(true);
 
         try {
-            // If no existing goal, create one first. constraint check.
+            // If no existing goal, create one first.
             if (!existingGoal) {
-                await careerGoalService.createGoal({ goalName: formData.careerGoal });
+                try {
+                    await careerGoalService.createGoal({ goalName: formData.careerGoal });
+                } catch (goalError) {
+                    // Ignore conflict if it already exists (e.g. from a previous partial submit)
+                    if (goalError.response?.status !== 409) {
+                        throw goalError;
+                    }
+                }
             } else if (existingGoal.goalName !== formData.careerGoal) {
                 // Should not happen if UI is disabled, but safety check
                 alert("You already have a goal. Please delete it first.");
@@ -139,7 +146,9 @@ export default function ProfileSetup() {
             }
 
             await profileService.createOrUpdateProfile(formData);
-            navigate('/skill-gap');
+            
+            // Navigate back to the dashboard once profile is completely setup
+            navigate('/dashboard');
         } catch (error) {
             alert('Error saving profile: ' + (error.response?.data?.message || error.message));
         } finally {
